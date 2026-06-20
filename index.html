@@ -47,7 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;
 
 /* ─── HERO ─── */
 .hero{min-height:100vh;padding:100px 2rem 5rem;background:linear-gradient(155deg,var(--g1) 0%,var(--g2) 45%,#0a2e15 100%);
-  display:flex;align-items:center;position:relative;overflow:hidden}
+  display:flex;align-items:center;position:relative;overflow:hidden;color:#fff}
 .hero-bg-lines{position:absolute;inset:0;pointer-events:none;opacity:.04}
 .hero-bg-lines::before{content:'';position:absolute;inset:0;
   background:repeating-linear-gradient(45deg,var(--g5) 0,var(--g5) 1px,transparent 0,transparent 60px)}
@@ -810,4 +810,14 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 
 /* FORM */
 function submitForm(){
-  const name=document.getElementById('fname')
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  if(!name||!phone){
+    alert('Пожалуйста, заполните имя и телефон');
+    return;
+  }
+  document.getElementById('formContent').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+</script>
+</body>
